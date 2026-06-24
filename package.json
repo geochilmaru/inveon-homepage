@@ -14,6 +14,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@google/design.md": "^0.3.0",
     "express": "^5.2.1"
   }
 }
