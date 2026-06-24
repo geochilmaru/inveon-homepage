@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인비온 에코시스템 | 인비온영어학원</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .eco-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 5.25rem;
+    }
+    
+    .eco-grid:last-child {
+      margin-bottom: 0;
+    }
+    
+    .eco-grid:nth-child(even) .eco-image-slot {
+      order: 2;
+    }
+    
+    .eco-image-slot {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-skyblue));
+      border-radius: 16px;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .eco-badge {
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      background-color: rgba(96, 165, 250, 0.15);
+      color: var(--color-primary);
+      font-weight: 800;
+      font-size: 0.8rem;
+      border-radius: 30px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    @media (max-width: 991px) {
+      .eco-grid, .eco-grid:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .eco-grid:nth-child(even) .eco-image-slot {
+        order: initial;
+      }
+      .eco-image-slot {
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="/" class="logo-link" style="display: flex; align-items: center; gap: 0.75rem;">
+        <img src="/src/logo.jpg" alt="INVEON Logo" style="height: 40px; width: auto; border-radius: 6px;">
+        <span style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; letter-spacing: 0.05em; color: var(--color-primary);">INVEON</span>
+      </a>
+      
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">홈</a></li>
+          <li><a href="/about" class="nav-link">학원 소개</a></li>
+          <li><a href="/curriculum" class="nav-link">커리큘럼</a></li>
+          <li><a href="/ecosystem" class="nav-link active">에코시스템</a></li>
+          <li><a href="/admissions" class="nav-link">명예의 전당 & 예약</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="/admissions#booking" class="btn btn-primary">레벨테스트 예약</a>
+        <button class="mobile-nav-toggle" aria-label="메뉴 열기">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SUB BANNER -->
+  <section class="sub-banner">
+    <div class="container">
+      <h1>IEA Ecosystem</h1>
+      <p>단순 수업을 넘어 동기부여와 스마트 리딩 관리가 유기적으로 맞물려 최고의 학습 효과를 내는 인비온만의 시스템입니다.</p>
+    </div>
+  </section>
+
+  <!-- ECOSYSTEM CONTENT -->
+  <section class="section-padding">
+    <div class="container">
+      
+      <!-- System 1: Workbook -->
+      <div class="eco-grid">
+        <div class="eco-image-slot" style="background: linear-gradient(135deg, #1E3A8A, #0F172A);">
+          <div>
+            <h3 style="color: white; font-size: 2.25rem; font-family: Outfit; font-weight: 800; margin-bottom: 1rem;">SPACED REPETITION</h3>
+            <div style="display: inline-block; padding: 0.5rem 1rem; background: rgba(255,255,255,0.15); border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+              Ebbinghaus Forgetting Curve Applied
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="eco-badge">자체 제작 워크북</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1.25rem;">에빙하우스 망각곡선 모델을 완벽 이식한 단어 학습</h2>
+          <p class="caption" style="line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 1.5rem;">
+            단어는 한 번 암기하고 넘어가면 20분 내에 42%, 하루 뒤에는 70%가 망각됩니다. 인비온의 자체 제작 워크북은 단어가 최초 노출된 뒤, 24시간 후, 3일 후, 7일 후 단위별 학습 유닛 내에 <strong>나선형 형태(Spaced Repetition)</strong>로 단어가 강제 재등장하도록 설계되었습니다.
+          </p>
+          <p class="caption" style="line-height: 1.7; color: var(--color-text-secondary);">
+            또한, 지문에 등장하는 동의어를 유추하고 해당 단어를 활용하여 3줄 이상의 문장을 작문하는 <strong>Output-Focus 훈련</strong>을 통해 기억을 단순 암기에서 장기 기억의 장치로 확고히 고착합니다.
+          </p>
+        </div>
+      </div>
+      
+      <!-- System 2: AR/SR -->
+      <div class="eco-grid">
+        <div class="eco-image-slot" style="background: linear-gradient(135deg, var(--color-skyblue), var(--color-primary));">
+          <div>
+            <h3 style="color: white; font-size: 2.25rem; font-family: Outfit; font-weight: 800; margin-bottom: 1rem;">SMART READING</h3>
+            <div style="display: inline-block; padding: 0.5rem 1rem; background: rgba(255,255,255,0.15); border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+              Renaissance Learning AR/SR
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="eco-badge">디지털 리딩 도서관</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1.25rem;">미국 6만 개 학교 검증의 데이터 기반 독서 관리</h2>
+          <p class="caption" style="line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 1.5rem;">
+            감에 의존하는 다독 지도를 탈피합니다. 전 세계 신뢰도 1위의 <strong>르네상스 러닝 프로그램</strong>을 활용하여 학생의 아카데믹 리딩 수준(GE)을 정밀 컴퓨터 적응형 평가(Star Reading)로 실시간 진단합니다.
+          </p>
+          <p class="caption" style="line-height: 1.7; color: var(--color-text-secondary);">
+            원내 1,000권 이상의 고품질 실물 영문 원서 라이브러리 및 22만 개 이상의 문제 은행 퀴즈를 활용하여, 책을 읽은 뒤 퀴즈 패스 여부를 꼼꼼하게 피드백합니다. 이를 통해 어휘력 향상과 깊이 있는 문해력을 동시에 검증합니다.
+          </p>
+        </div>
+      </div>
+      
+      <!-- System 3: Market Day -->
+      <div class="eco-grid">
+        <div class="eco-image-slot" style="background: linear-gradient(135deg, var(--color-accent), var(--color-primary));">
+          <div>
+            <h3 style="color: white; font-size: 2.25rem; font-family: Outfit; font-weight: 800; margin-bottom: 1rem;">STAMP ECONOMY</h3>
+            <div style="display: inline-block; padding: 0.5rem 1rem; background: rgba(255,255,255,0.15); border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+              Inveon Market Day Rewards
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="eco-badge">인비온 마켓데이</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1.25rem;">긍정적 자극과 동기부여를 위한 스탬프 제도</h2>
+          <p class="caption" style="line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 1.5rem;">
+            어려운 아카데믹 공부 과정에 확실한 내적 동기와 소소한 즐거움을 불어넣습니다. 학생들은 리딩 퀴즈 만점, 에세이 우수 우수작 선정, 100% 영어 환경 수칙 준수 등 교육 활동 속에서 스탬프(Stamp) 포인트를 획득합니다.
+          </p>
+          <p class="caption" style="line-height: 1.7; color: var(--color-text-secondary);">
+            분기별로 열리는 성대한 <strong>인비온 마켓데이(Market Day)</strong>를 통해 아이들이 획득한 결실을 푸드와 교육 에셋, 영단어 보드게임 등으로 교환하며 주도적인 성취감과 학습 활력을 다져나갑니다.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo-link" style="display: flex; align-items: center; gap: 0.75rem; color: white; margin-bottom: 1rem;">
+          <div style="background: white; padding: 3px; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center;">
+            <img src="/src/logo.jpg" alt="INVEON Logo" style="height: 30px; width: auto; border-radius: 4px;">
+          </div>
+          <span style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.35rem; letter-spacing: 0.05em; color: white;">INVEON</span>
+        </a>
+        <p>인지과학에 입각한 최적의 학습 반복 설계와 최상위 리딩/작문 중심의 송도 명문 영어교육 기관</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">학원 소개</h4>
+        <ul class="footer-links">
+          <li><a href="/about">교육 철학</a></li>
+          <li><a href="/about#faculty">원장단 구성</a></li>
+          <li><a href="/about#environment">원내 소통 환경</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">교육 프로그램</h4>
+        <ul class="footer-links">
+          <li><a href="/curriculum#regular">초중등 정규반</a></li>
+          <li><a href="/curriculum#bookclub">아카데믹 북클럽</a></li>
+          <li><a href="/curriculum#exam">보딩/명문 대입 대비</a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <h4 class="footer-heading">연락처 및 위치</h4>
+        <p>📞 032-833-3642</p>
+        <p>✉️ inveonenglish@gmail.com</p>
+        <p>📍 인천광역시 연수구 컨벤시아대로 42번길 29 에이스프라자1, 203호</p>
+        <p>🏢 학원등록번호: 인천 동부 교육지원청 제 4067호</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="current-year"></span> Inveon English Academy. All Rights Reserved.</p>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="https://instagram.com/inveonenglish" target="_blank" style="color: rgba(255,255,255,0.6); font-weight: 600;">공식 인스타그램 (@inveonenglish)</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/localStorage.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
