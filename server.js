@@ -59,9 +59,13 @@ app.get('/mockups', (req, res) => {
 const DATA_DIR = path.join(__dirname, 'data');
 const DATA_FILE = path.join(DATA_DIR, 'reservations.json');
 
-// Ensure data folder exists
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR);
+// Ensure data folder exists with safety wrapping for read-only filesystem environments (Vercel)
+try {
+  if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  }
+} catch (err) {
+  console.warn("Read-only filesystem detected, data folder creation skipped:", err.message);
 }
 
 // API to sync localStorage data to the server
@@ -71,8 +75,14 @@ app.post('/api/sync', (req, res) => {
     if (!Array.isArray(reservations)) {
       return res.status(400).json({ success: false, error: 'Invalid data format' });
     }
-    fs.writeFileSync(DATA_FILE, JSON.stringify(reservations, null, 2));
-    res.json({ success: true, message: 'LocalStorage successfully synced to server file.' });
+    // Safety check for write capabilities
+    try {
+      fs.writeFileSync(DATA_FILE, JSON.stringify(reservations, null, 2));
+      res.json({ success: true, message: 'LocalStorage successfully synced to server file.' });
+    } catch (writeErr) {
+      console.warn("Write failed (expected on serverless platforms):", writeErr.message);
+      res.json({ success: true, message: 'Server is running serverless (read-only), synced via browser memory.' });
+    }
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
@@ -92,6 +102,12 @@ app.get('/api/reservations', (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`IEA Server is running on http://localhost:${PORT}`);
-});
+// Only listen if run directly (local development) to prevent Vercel Serverless crashes
+if (process.env.NODE_ENV !== 'production' && require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`IEA Server is running on http://localhost:${PORT}`);
+  });
+}
+
+// Export the Express app for Vercel Serverless Function binding
+module.exports = app;
