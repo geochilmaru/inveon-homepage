@@ -1,0 +1,22 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Consultation {
+  id               String   @id @default(uuid())
+  studentName      String   @map("student_name")
+  grade            String   @map("grade")
+  parentContact    String   @map("parent_contact")
+  interestedCourse String   @map("interested_course")
+  preferredDate    DateTime @map("preferred_date")
+  privacyConsent   Boolean  @default(false) @map("privacy_consent")
+  status           String   @default("pending") @map("status")
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  @@map("consultations")
+}
