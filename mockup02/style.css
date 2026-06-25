@@ -515,3 +515,17 @@ h1, h2, h3, h4 {
   .consult-grid { grid-template-columns: 1fr; gap: 3rem; }
   .footer-top { grid-template-columns: 1fr; gap: 3rem; }
 }
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.2rem; }
+  .section-padding { padding: 4rem 0; }
+  .section-title { font-size: 1.8rem; }
+  .slider-container { height: 350px; }
+  .slider-img { padding: 1.5rem; }
+  .essay-title { font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .essay-text { font-size: 0.85rem; line-height: 1.5; }
+  .quiz-box { padding: 1.5rem; }
+  .quiz-question { font-size: 1.15rem; }
+  .quiz-option-btn { padding: 0.9rem 1.2rem; font-size: 0.9rem; }
+  .consult-form-box { padding: 1.8rem; }
+}

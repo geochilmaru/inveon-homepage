@@ -242,7 +242,11 @@ body {
 }
 
 @media (max-width: 768px) {
-  .hero-title { font-size: 3rem; }
-  .minimal-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .footer-container { grid-template-columns: 1fr; }
+  .hero-title { font-size: 2.8rem; }
+  .hero-subtitle { font-size: 1.1rem; }
+  .reveal-text { font-size: 1.7rem; margin-bottom: 2.5rem; }
+  .section { padding: 5rem 0; }
+  .minimal-grid { grid-template-columns: 1fr; gap: 2rem; margin-top: 3rem; }
+  .footer-container { grid-template-columns: 1fr; gap: 2rem; }
+  .apply-box { padding: 0 1rem; }
 }
