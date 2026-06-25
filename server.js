@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const { PrismaClient } = require('@prisma/client');
+
+const prisma = new PrismaClient();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -68,35 +71,122 @@ try {
   console.warn("Read-only filesystem detected, data folder creation skipped:", err.message);
 }
 
-// API to sync localStorage data to the server
-app.post('/api/sync', (req, res) => {
+// Date formatter helper to match client expectation
+function formatPreferredDate(date) {
+  if (!date) return '';
+  const d = new Date(date);
+  if (isNaN(d.getTime())) return '';
+  const pad = (n) => String(n).padStart(2, '0');
+  const year = d.getFullYear();
+  const month = pad(d.getMonth() + 1);
+  const day = pad(d.getDate());
+  const hours = pad(d.getHours());
+  const minutes = pad(d.getMinutes());
+  return `${year}-${month}-${day}T${hours}:${minutes}`;
+}
+
+// API to sync localStorage data to the server (with Neon DB and fallback to file DB)
+app.post('/api/sync', async (req, res) => {
   try {
     const reservations = req.body;
     if (!Array.isArray(reservations)) {
       return res.status(400).json({ success: false, error: 'Invalid data format' });
     }
-    // Safety check for write capabilities
+
+    // 1. Primary Sync: Save to Neon DB using Prisma upsert
+    try {
+      const upsertPromises = reservations.map(item => {
+        const preferredDate = item.preferredDate ? new Date(item.preferredDate) : new Date();
+        const createdAt = item.createdAt ? new Date(item.createdAt) : new Date();
+
+        return prisma.consultation.upsert({
+          where: { id: item.id },
+          update: {
+            studentName: item.studentName || '',
+            grade: item.grade || '',
+            parentContact: item.parentContact || '',
+            interestedCourse: item.interestedCourse || '',
+            preferredDate: preferredDate,
+            privacyConsent: item.privacyConsent === true || item.privacyConsent === 'true',
+            status: item.status || 'pending',
+            createdAt: createdAt
+          },
+          create: {
+            id: item.id,
+            studentName: item.studentName || '',
+            grade: item.grade || '',
+            parentContact: item.parentContact || '',
+            interestedCourse: item.interestedCourse || '',
+            preferredDate: preferredDate,
+            privacyConsent: item.privacyConsent === true || item.privacyConsent === 'true',
+            status: item.status || 'pending',
+            createdAt: createdAt
+          }
+        });
+      });
+
+      await Promise.all(upsertPromises);
+      console.log('Successfully synchronized bookings with Neon database.');
+    } catch (dbErr) {
+      console.error('Neon DB Sync failed, falling back to local file operations:', dbErr.message);
+    }
+
+    // 2. Secondary Sync: Backup to local file storage (if writable)
     try {
       fs.writeFileSync(DATA_FILE, JSON.stringify(reservations, null, 2));
-      res.json({ success: true, message: 'LocalStorage successfully synced to server file.' });
     } catch (writeErr) {
-      console.warn("Write failed (expected on serverless platforms):", writeErr.message);
-      res.json({ success: true, message: 'Server is running serverless (read-only), synced via browser memory.' });
+      console.warn("Write to local backup failed (Expected on serverless read-only platforms):", writeErr.message);
     }
+
+    res.json({ success: true, message: 'LocalStorage synced. Processed via DB integration & local backup fallback.' });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
 });
 
 // API to retrieve synced data from the server
-app.get('/api/reservations', (req, res) => {
+app.get('/api/reservations', async (req, res) => {
   try {
-    if (fs.existsSync(DATA_FILE)) {
-      const data = fs.readFileSync(DATA_FILE, 'utf8');
-      res.json(JSON.parse(data));
-    } else {
-      res.json([]);
+    let dataLoaded = false;
+    let reservations = [];
+
+    // 1. Primary Fetch: Load from Neon DB
+    try {
+      const dbReservations = await prisma.consultation.findMany({
+        orderBy: {
+          createdAt: 'desc'
+        }
+      });
+      
+      if (dbReservations && dbReservations.length > 0) {
+        reservations = dbReservations.map(item => ({
+          id: item.id,
+          studentName: item.studentName,
+          grade: item.grade,
+          parentContact: item.parentContact,
+          interestedCourse: item.interestedCourse,
+          preferredDate: formatPreferredDate(item.preferredDate),
+          privacyConsent: item.privacyConsent,
+          status: item.status,
+          createdAt: item.createdAt ? item.createdAt.toISOString() : new Date().toISOString()
+        }));
+        dataLoaded = true;
+        console.log('Successfully fetched reservations from Neon DB.');
+      }
+    } catch (dbErr) {
+      console.error('Failed to fetch from Neon DB, falling back to local file:', dbErr.message);
     }
+
+    // 2. Secondary Fetch (Fallback): Load from local json file
+    if (!dataLoaded) {
+      if (fs.existsSync(DATA_FILE)) {
+        const fileData = fs.readFileSync(DATA_FILE, 'utf8');
+        reservations = JSON.parse(fileData);
+        console.log('Fetched reservations from local backup file.');
+      }
+    }
+
+    res.json(reservations);
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
