@@ -9,6 +9,31 @@ app.use(express.json());
 // Serve static assets from the public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Serve static assets from mockup folders
+app.use('/mockup01', express.static(path.join(__dirname, 'mockup01')));
+app.use('/mockup02', express.static(path.join(__dirname, 'mockup02')));
+app.use('/mockup03', express.static(path.join(__dirname, 'mockup03')));
+app.use('/mockup04', express.static(path.join(__dirname, 'mockup04')));
+app.use('/mockup05', express.static(path.join(__dirname, 'mockup05')));
+app.use('/mockup-src', express.static(path.join(__dirname, 'mockup-src')));
+
+// Explicit mockup index routers to avoid trailing slash issues
+app.get('/mockup01', (req, res) => {
+  res.sendFile(path.join(__dirname, 'mockup01', 'index.html'));
+});
+app.get('/mockup02', (req, res) => {
+  res.sendFile(path.join(__dirname, 'mockup02', 'index.html'));
+});
+app.get('/mockup03', (req, res) => {
+  res.sendFile(path.join(__dirname, 'mockup03', 'index.html'));
+});
+app.get('/mockup04', (req, res) => {
+  res.sendFile(path.join(__dirname, 'mockup04', 'index.html'));
+});
+app.get('/mockup05', (req, res) => {
+  res.sendFile(path.join(__dirname, 'mockup05', 'index.html'));
+});
+
 // Explicit clean URL page mapping
 app.get('/about', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'about', 'index.html'));
@@ -24,6 +49,10 @@ app.get('/ecosystem', (req, res) => {
 
 app.get('/admissions', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'admissions', 'index.html'));
+});
+
+app.get('/mockups', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'mockups', 'index.html'));
 });
 
 // File paths for 간이 DB (for backup sync)

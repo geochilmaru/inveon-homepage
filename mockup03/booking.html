@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상담 예약 및 FAQ | 인비온영어학원</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="./index.html" class="logo-link">
+        <span>INVEON</span><span class="logo-dot">.</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="./index.html" class="nav-link" id="nav-home">Home</a></li>
+          <li><a href="./philosophy.html" class="nav-link" id="nav-philosophy">Philosophy</a></li>
+          <li><a href="./booking.html" class="nav-link active" id="nav-booking">Consult Booking</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="./booking.html" class="btn btn-primary">상담 예약</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <section class="section-padding" style="padding-top: 10rem;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Consultation</span>
+        <h2 class="section-title">1:1 맞춤 학업 컨설팅 신청</h2>
+        <p class="section-desc">우리아이에게 필요한 학습 단계와 독서 습관 방향성을 원장단과 함께 상의해 보세요.</p>
+      </div>
+
+      <!-- Booking Form -->
+      <div class="booking-container" style="margin-bottom: 5rem;">
+        <form id="parent-booking-form">
+          <div class="form-group">
+            <label class="form-label" for="parent-name">학부모님 성함</label>
+            <input type="text" id="parent-name" class="form-input" placeholder="학부모님 이름을 입력해 주세요" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="phone">연락처</label>
+            <input type="tel" id="phone" class="form-input" placeholder="010-0000-0000" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="student-name">학생 이름</label>
+            <input type="text" id="student-name" class="form-input" placeholder="자녀의 이름을 입력해 주세요" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="school-grade">자녀의 현재 학년</label>
+            <input type="text" id="school-grade" class="form-input" placeholder="예: 초등 4학년" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="memo">주요 고민 또는 문의 사항</label>
+            <textarea id="memo" class="form-input" rows="4" placeholder="학습 습관, 어휘력, 리딩 고민 등 자유롭게 적어주세요" style="resize: none;"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 8px; margin-top: 1rem;">1:1 상담 예약 완료</button>
+        </form>
+      </div>
+
+      <!-- FAQ Accordion -->
+      <div class="section-header" style="margin-bottom: 3rem;">
+        <h2 class="section-title">자주 묻는 질문 (FAQ)</h2>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Q1. 타 학원의 단어 암기 시스템과 구체적으로 무엇이 다른가요?</span>
+            <span class="accordion-icon">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>보통 단어장만 들고 달달 외워 시험을 보는 방식은 단기 기억에 머물고 금방 까먹게 됩니다. 인비온은 자체 개발한 워크북 교재 내에서 이전에 배운 단어가 1일, 7일, 30일 간격으로 독해 지문이나 영작 과제에 자연스럽게 다시 등장하도록 나선형 설계를 채택했습니다. 억지로 쓰면서 외우지 않고 자연스러운 반복 인출 과정을 거쳐 영구히 기억됩니다.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Q2. 100% 영어 환경이라는데, 아이가 너무 낯설어하진 않을까요?</span>
+            <span class="accordion-icon">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>초기 1~2주간은 영어로만 대답하는 것이 어색할 수 있습니다. 하지만 인비온의 원장단과 상주 선생님들은 아이들의 눈높이에 맞춘 부드러운 유도 방식을 사용하여 영어로 표현하고 응답하는 놀이식 리워드 문화를 구축하고 있습니다. 자연스럽게 몸짓과 단순 대답부터 시작하여 금세 영어 일상 소통에 적응하게 됩니다.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Q3. AR/SR 독서 시스템은 집에서도 이용이 가능한가요?</span>
+            <span class="accordion-icon">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>네, 인비온 학생들은 개인별 태블릿 및 PC 계정을 부여받아 집에서도 22만 권 이상의 르네상스 러닝 전자도서 열람 및 퀴즈 응시가 가능합니다. 학원 내 라이브러리에서는 전문 사서 강사님이 아이들의 독서 현황을 분석하여 지속적인 책 목록 가이드를 매칭해 줍니다.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <h3>INVEON</h3>
+        <p style="font-size: 0.9rem; line-height: 1.6; max-width: 300px;">성적 그 이상을 만드는 사고력 중심, 미국 검증 리딩 프로그램 및 토론 연계 아카데미</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">Philosophy</h4>
+        <ul class="footer-links">
+          <li><a href="./philosophy.html">에빙하우스 망각곡선 반복법</a></li>
+          <li><a href="./philosophy.html#reading">AR/SR 리딩 시스템</a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <h4 class="footer-heading">Contact</h4>
+        <p>📍 인천광역시 연수구 컨벤시아대로 42번길 29 에이스프라자 203호</p>
+        <p>📞 032-833-3642</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Inveon English Academy. All Rights Reserved.</p>
+      <p><a href="/mockups" style="color: white; text-decoration: underline; font-weight: 600;">← 시안 갤러리로 돌아가기</a></p>
+    </div>
+  </footer>
+
+  <script src="./main.js"></script>
+  <script>
+    document.getElementById('parent-booking-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const bookingData = {
+        type: 'Parent Focused',
+        parentName: document.getElementById('parent-name').value,
+        phone: document.getElementById('phone').value,
+        studentName: document.getElementById('student-name').value,
+        grade: document.getElementById('school-grade').value,
+        date: '1:1 방문 일정 유선 조율',
+        time: '희망 문의사항 접수됨',
+        createdAt: new Date().toISOString()
+      };
+
+      let reservations = JSON.parse(localStorage.getItem('iea_reservations') || '[]');
+      reservations.push(bookingData);
+      localStorage.setItem('iea_reservations', JSON.stringify(reservations));
+
+      fetch('/api/sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(reservations)
+      })
+      .then(res => res.json())
+      .catch(err => console.error(err));
+
+      alert('상담 신청서가 제출되었습니다. 확인 후 유선 연락드리겠습니다.');
+      window.location.href = './index.html';
+    });
+  </script>
+</body>
+</html>

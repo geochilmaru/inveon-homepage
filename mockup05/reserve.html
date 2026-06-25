@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talk Booking | 인비온영어학원</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="./index.html" class="logo-link">
+        <span>INVEON LIFE</span><span class="logo-dot">.</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="./index.html" class="nav-link" id="nav-home">Home</a></li>
+          <li><a href="./life.html" class="nav-link" id="nav-life">Academy Life</a></li>
+          <li><a href="./market.html" class="nav-link" id="nav-market">Stamp Shop</a></li>
+          <li><a href="./reserve.html" class="nav-link active" id="nav-reserve">Talk Booking</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="./reserve.html" class="btn btn-primary" style="padding: 0.6rem 1.2rem;">상담하기</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">인비온 요정 챗봇 상담 예약</h2>
+        <p class="section-desc">딱딱한 서류 입력 대신 챗봇 요정과 대화하듯 편하게 상담 일정을 남겨주세요.</p>
+      </div>
+
+      <!-- Chatbot Box -->
+      <div class="chatbot-container">
+        <!-- Messages Area -->
+        <div id="chat-body" style="height: 380px; overflow-y: auto; display: flex; flex-direction: column; gap: 1rem; padding-right: 0.5rem;">
+          <!-- Bubbles added by JS -->
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-input-area">
+          <input type="text" id="chat-input" class="chat-input" placeholder="답변을 여기에 적어주세요..." required>
+          <button id="chat-send-btn" class="btn btn-primary" style="padding: 0.5rem 1.5rem; border-radius: 8px;">전송</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <h3>INVEON LIFE</h3>
+        <p style="font-size: 0.9rem; line-height: 1.6; max-width: 300px;">칭찬 보상 제도와 소통형 학원 생활을 바탕으로 진짜 입이 트이는 즐거운 영어 학업 모델</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">Friendly Board</h4>
+        <ul class="footer-links">
+          <li><a href="./life.html">원내 생활 갤러리</a></li>
+          <li><a href="./market.html">모의 스탬프 숍</a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <h4 class="footer-heading">Contact</h4>
+        <p>📍 인천 연수구 컨벤시아대로 42 에이스프라자 203호</p>
+        <p>📞 032-833-3642</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Inveon Friendly. All Rights Reserved.</p>
+      <p><a href="/mockups" style="color: var(--color-accent); text-decoration: none; font-weight: 800;">← 시안 갤러리로 돌아가기</a></p>
+    </div>
+  </footer>
+
+  <script src="./main.js"></script>
+</body>
+</html>

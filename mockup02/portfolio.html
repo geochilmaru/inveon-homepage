@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portfolio | INVEON ENGLISH ACADEMY</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="./index.html" class="logo-link">
+        <span>INVEON OUTCOME</span><span class="logo-dot">.</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="./index.html" class="nav-link" id="nav-home">Dashboard</a></li>
+          <li><a href="./portfolio.html" class="nav-link active" id="nav-portfolio">Student Portfolio</a></li>
+          <li><a href="./quiz.html" class="nav-link" id="nav-quiz">Timer Quiz Demo</a></li>
+          <li><a href="./consult.html" class="nav-link" id="nav-consult">Book Consulting</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="./consult.html" class="btn btn-primary">진단 예약</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">첨삭 및 어휘 심화 학습을 통한 성과 지표</h2>
+        <p class="section-desc">가운데 슬라이더 버튼을 좌우로 드래그하여 학생의 Essay 초안(Before)과 1:1 디렉터 첨삭 및 고단어 치환 후 최종본(After)을 비교해보세요.</p>
+      </div>
+
+      <!-- Before/After Slider Component -->
+      <div class="slider-container">
+        <!-- Before: Red tone draft -->
+        <div class="slider-img img-before">
+          <span class="slider-label">Student Draft (Before)</span>
+          <div class="essay-content">
+            <h3 class="essay-title">Artificial Intelligence in Education</h3>
+            <p class="essay-text">
+Many schools now use AI programs. I think AI is very good because it helps students study fast and find information. But, some students might copy from AI for homework. This makes teachers worried. We need to use AI in a smart way. AI will change schools a lot.
+            </p>
+          </div>
+        </div>
+
+        <!-- After: Emerald tone polished -->
+        <div class="slider-img img-after">
+          <span class="slider-label">Polished Portfolio (After)</span>
+          <div class="essay-content">
+            <h3 class="essay-title" style="color: #065F46;">The Paradigm Shift: AI in Pedagogy</h3>
+            <p class="essay-text" style="color: #065F46;">
+Educational institutions are actively integrating artificial intelligence tools. While AI facilitates personalized learning pathways and accelerates cognitive acquisition, it simultaneously presents severe integrity risks like academic plagiarism. To mitigate these concerns, educators must establish critical-thinking guidelines, transforming AI into an intellectual catalyst rather than a cognitive crutch.
+            </p>
+          </div>
+        </div>
+
+        <!-- Slider Bar & Controller -->
+        <div class="slider-bar"></div>
+        <div class="slider-button">↔</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <h3>INVEON OUTCOME</h3>
+        <p style="font-size: 0.9rem; line-height: 1.6; max-width: 300px;">단순 찍기를 막는 타이머 퀴즈 시스템과 성과 데이터를 시각화하는 결과 중심의 교육 모델</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">Portfolios</h4>
+        <ul class="footer-links">
+          <li><a href="./portfolio.html">Student Essays</a></li>
+          <li><a href="./quiz.html">Academic Vocab Test</a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <h4 class="footer-heading">Contact</h4>
+        <p>📍 인천광역시 연수구 컨벤시아대로 42번길 29 에이스프라자 203호</p>
+        <p>📞 032-833-3642</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Inveon Outcome. All Rights Reserved.</p>
+      <p><a href="/mockups" style="color: white; text-decoration: underline; font-weight: 600;">← 시안 갤러리로 돌아가기</a></p>
+    </div>
+  </footer>
+
+  <script src="./main.js"></script>
+</body>
+</html>

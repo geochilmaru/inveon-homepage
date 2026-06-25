@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>디자인 시안 갤러리 | 인비온영어학원</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    
+    .mockup-card {
+      background-color: var(--color-bg-white);
+      border-radius: 16px;
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+    }
+    
+    .mockup-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-premium);
+      border-color: var(--color-skyblue);
+    }
+    
+    .mockup-header-preview {
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      background-color: #000;
+      border-bottom: 2px solid var(--color-border);
+    }
+
+    .mockup-preview-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .mockup-card:hover .mockup-preview-video {
+      opacity: 0.9;
+    }
+
+    .mockup-header-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      color: white;
+      z-index: 2;
+    }
+    
+    .mockup-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      z-index: 3;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .btn-view {
+      width: 100%;
+      justify-content: center;
+      margin-top: auto;
+      border-radius: 0 0 16px 16px;
+      padding: 1.2rem;
+      border: none;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+    
+    .tag-highlight {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      background-color: rgba(37, 99, 235, 0.08);
+      color: var(--color-primary);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+      align-self: flex-start;
+    }
+
+    .ux-feature-list {
+      list-style: none;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+    }
+
+    .ux-feature-list li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ux-feature-list li::before {
+      content: '✦';
+      color: var(--color-primary);
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="/" class="logo-link" style="display: flex; align-items: center; gap: 0.6rem;">
+        <img src="/src/logo_white.png" alt="INVEON English Academy" style="height: 42px; width: auto;">
+        <span style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.4rem; letter-spacing: 0.06em; color: #254887; line-height: 1;">INVEON</span>
+      </a>
+      
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">홈</a></li>
+          <li><a href="/about" class="nav-link">학원 소개</a></li>
+          <li><a href="/curriculum" class="nav-link">커리큘럼</a></li>
+          <li><a href="/ecosystem" class="nav-link">에코시스템</a></li>
+          <li><a href="/admissions" class="nav-link">명예의 전당 & 예약</a></li>
+          <li><a href="/mockups" class="nav-link active">디자인 시안</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="/admissions#booking" class="btn btn-primary">레벨테스트 예약</a>
+        <button class="mobile-nav-toggle" aria-label="메뉴 열기">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SUB BANNER -->
+  <section class="sub-banner">
+    <div class="container">
+      <h1>IEA Mockups Gallery</h1>
+      <p>구조와 사용자 경험(UX)이 모두 다르게 특화 설계된 5대 맞춤형 시안 라인업을 체험해 보세요.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY LIST -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Design Options</span>
+        <h2 class="section-title">완전히 차별화된 5대 시안 라인업</h2>
+        <p class="section-desc">각 카드에 마우스를 올리면 실제 매칭된 히어로 비디오가 플레이됩니다. 링크를 클릭하여 동작을 테스트해 보세요.</p>
+      </div>
+      
+      <div class="mockup-grid">
+        
+        <!-- Option 1 -->
+        <div class="mockup-card">
+          <div class="mockup-header-preview">
+            <span class="mockup-badge" style="background-color: #D4AF37; color: #000;">Option 1</span>
+            <video class="mockup-preview-video" src="/mockup-src/Student_presenting_in_class_202606251302.mp4" loop muted playsinline></video>
+            <div class="mockup-header-overlay">
+              <h3 style="color: #F8FAFC; font-size: 1.4rem; font-family: 'Outfit'; font-weight: 800;">Premium Academy</h3>
+              <p style="font-size: 0.8rem; opacity: 0.8; font-family: 'Outfit';">Dark Slate & Antique Gold</p>
+            </div>
+          </div>
+          <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+            <span class="tag-highlight">엘리트 명문 아카데믹 스타일</span>
+            <h4 style="font-size: 1.15rem; margin-bottom: 0.8rem; color: var(--color-primary);">"영어를 공부하지 않고 생각합니다."</h4>
+            <p class="caption" style="line-height: 1.6; color: var(--color-text-secondary);">
+              앤티크 골드 포인트와 에디토리얼 스타일의 여백을 활용한 최고급 입학설명회 무드의 시안입니다.
+            </p>
+            <ul class="ux-feature-list">
+              <li>Syllabus, Faculty 등 전용 서브페이지 구성</li>
+              <li>동적으로 슬롯을 선택하는 예약 캘린더 UX</li>
+            </ul>
+            <a href="/mockup01" target="_blank" class="btn btn-primary btn-view" style="background-color: #07090E; color: #D4AF37; border: 1px solid #D4AF37;">시안 확인하기 (새 창) →</a>
+          </div>
+        </div>
+
+        <!-- Option 2 -->
+        <div class="mockup-card">
+          <div class="mockup-header-preview">
+            <span class="mockup-badge" style="background-color: #10B981; color: white;">Option 2</span>
+            <video class="mockup-preview-video" src="/mockup-src/Student_hand_flipping_English_es…_202606251302.mp4" loop muted playsinline></video>
+            <div class="mockup-header-overlay">
+              <h3 style="color: white; font-size: 1.4rem; font-family: 'Outfit'; font-weight: 800;">Outcome Driven</h3>
+              <p style="font-size: 0.8rem; opacity: 0.8; font-family: 'Outfit';">Data Dashboard & Success Green</p>
+            </div>
+          </div>
+          <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+            <span class="tag-highlight" style="background-color: rgba(16, 185, 129, 0.08); color: #10B981;">성과 대시보드 및 게이미피케이션</span>
+            <h4 style="font-size: 1.15rem; margin-bottom: 0.8rem; color: var(--color-primary);">"배운 영어를 실제로 말할 수 있나요?"</h4>
+            <p class="caption" style="line-height: 1.6; color: var(--color-text-secondary);">
+              학습 성취 데이터를 위젯화하여 실적으로 신뢰감을 주는 그리드 방식의 대시보드 시안입니다.
+            </p>
+            <ul class="ux-feature-list">
+              <li>10초 타임아웃 실시간 어휘 퀴즈 모듈</li>
+              <li>마우스 드래그 Before/After 에세이 비교기</li>
+            </ul>
+            <a href="/mockup02" target="_blank" class="btn btn-primary btn-view" style="background-color: #1E3A8A; color: white;">시안 확인하기 (새 창) →</a>
+          </div>
+        </div>
+
+        <!-- Option 3 -->
+        <div class="mockup-card" style="border: 2px solid var(--color-primary);">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background-color: var(--color-primary); color: white; padding: 0.2rem 1.2rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; z-index: 10; border: 1.5px solid white;">RECOMMENDED (MVP)</div>
+          <div class="mockup-header-preview">
+            <span class="mockup-badge" style="background-color: #F59E0B; color: white;">Option 3</span>
+            <video class="mockup-preview-video" src="/mockup-src/Student_presenting_ideas_to_teacher_202606251301.mp4" loop muted playsinline></video>
+            <div class="mockup-header-overlay">
+              <h3 style="color: white; font-size: 1.4rem; font-family: 'Outfit'; font-weight: 800;">Parent Focused</h3>
+              <p style="font-size: 0.8rem; opacity: 0.8; font-family: 'Outfit';">Trust Blue & Soft Sky</p>
+            </div>
+          </div>
+          <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+            <span class="tag-highlight" style="background-color: rgba(37, 99, 235, 0.08); color: #2563EB;">스토리텔링 및 학부모 공감 설계</span>
+            <h4 style="font-size: 1.15rem; margin-bottom: 0.8rem; color: var(--color-primary);">"성적보다 영어 사고력이 중요합니다."</h4>
+            <p class="caption" style="line-height: 1.6; color: var(--color-text-secondary);">
+              학부모의 교육 철학적 요구와 교사의 상호작용 스토리를 담은 서정적이고 안정감 있는 시안입니다.
+            </p>
+            <ul class="ux-feature-list">
+              <li>학부모 추천 평점 캐러셀 자동 슬라이더</li>
+              <li>접이식 스무스 FAQ 아코디언 컴포넌트</li>
+            </ul>
+            <a href="/mockup03" target="_blank" class="btn btn-primary btn-view" style="background-color: #2563EB; color: white;">시안 확인하기 (새 창) →</a>
+          </div>
+        </div>
+
+        <!-- Option 4 -->
+        <div class="mockup-card">
+          <div class="mockup-header-preview">
+            <span class="mockup-badge" style="background-color: #111827; color: white;">Option 4</span>
+            <video class="mockup-preview-video" src="/mockup-src/Student_thinking_and_speaking_face_202606251301.mp4" loop muted playsinline></video>
+            <div class="mockup-header-overlay">
+              <h3 style="color: white; font-size: 1.4rem; font-family: 'Outfit'; font-weight: 800;">Apple Style Minimal</h3>
+              <p style="font-size: 0.8rem; opacity: 0.8; font-family: 'Outfit';">Pure White & High Typography</p>
+            </div>
+          </div>
+          <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+            <span class="tag-highlight" style="background-color: rgba(17, 24, 39, 0.08); color: #111827;">본질에 집중한 미니멀 여백</span>
+            <h4 style="font-size: 1.15rem; margin-bottom: 0.8rem; color: var(--color-primary);">"Think in English."</h4>
+            <p class="caption" style="line-height: 1.6; color: var(--color-text-secondary);">
+              장식을 걷어내고 큰 폰트 대비와 전체 화면 동영상 히어로 영역으로 본질적인 정체성을 각인시킵니다.
+            </p>
+            <ul class="ux-feature-list">
+              <li>중앙 스크롤 연동 불투명도 텍스트 하이라이트</li>
+              <li>단 2개 기입란의 초간단 전화 신청 콜백 폼</li>
+            </ul>
+            <a href="/mockup04" target="_blank" class="btn btn-primary btn-view" style="background-color: #111827; color: white;">시안 확인하기 (새 창) →</a>
+          </div>
+        </div>
+
+        <!-- Option 5 -->
+        <div class="mockup-card">
+          <div class="mockup-header-preview">
+            <span class="mockup-badge" style="background-color: #EA580C; color: white;">Option 5</span>
+            <video class="mockup-preview-video" src="/mockup-src/Teacher_and_students_laughing_ci…_202606251301.mp4" loop muted playsinline></video>
+            <div class="mockup-header-overlay">
+              <h3 style="color: white; font-size: 1.4rem; font-family: 'Outfit'; font-weight: 800;">Friendly Community</h3>
+              <p style="font-size: 0.8rem; opacity: 0.8; font-family: 'Outfit';">Peach & Warm Rust</p>
+            </div>
+          </div>
+          <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+            <span class="tag-highlight" style="background-color: rgba(234, 88, 12, 0.08); color: #EA580C;">활동형 커뮤니티 및 동기부여</span>
+            <h4 style="font-size: 1.15rem; margin-bottom: 0.8rem; color: var(--color-primary);">"우리 아이 영어, 암기만 하고 있나요?"</h4>
+            <p class="caption" style="line-height: 1.6; color: var(--color-text-secondary);">
+              통통 튀는 살구색 테마와 뚜렷한 보더 라인의 네오브루탈리즘 카드형 UI 시안입니다.
+            </p>
+            <ul class="ux-feature-list">
+              <li>스탬프로 간식을 사는 마켓데이 보관함 시뮬레이터</li>
+              <li>질답을 통해 일정을 채워가는 챗봇 예약 모듈</li>
+            </ul>
+            <a href="/mockup05" target="_blank" class="btn btn-primary btn-view" style="background-color: #EA580C; color: white; border: none;">시안 확인하기 (새 창) →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo-link" style="display: inline-flex; margin-bottom: 1rem; color: #ffffff;">
+          <span style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; letter-spacing: 0.06em;">INVEON</span>
+        </a>
+        <p>인지과학에 바탕을 둔 학습 반복 설계와 최상위 리딩·작문 중심의 송도 명문 영어교육 기관</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">학원 소개</h4>
+        <ul class="footer-links">
+          <li><a href="/about">교육 철학</a></li>
+          <li><a href="/about#faculty">원장단 구성</a></li>
+          <li><a href="/about#environment">원내 소통 환경</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">교육 프로그램</h4>
+        <ul class="footer-links">
+          <li><a href="/curriculum#regular">초중등 정규반</a></li>
+          <li><a href="/curriculum#bookclub">아카데믹 북클럽</a></li>
+          <li><a href="/curriculum#exam">보딩/명문 대입 대비</a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <h4 class="footer-heading">연락처 및 위치</h4>
+        <p>📞 032-833-3642</p>
+        <p>✉️ inveonenglish@gmail.com</p>
+        <p>📍 인천광역시 연수구 컨벤시아대로 42번길 29 에이스프라자1, 203호</p>
+        <p>🏢 학원등록번호: 인천 동부 교육지원청 제 4067호</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Inveon English Academy. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Hover Video Playback Logic
+    document.querySelectorAll('.mockup-card').forEach(card => {
+      const video = card.querySelector('.mockup-preview-video');
+      if (video) {
+        card.addEventListener('mouseenter', () => {
+          video.play().catch(err => console.log('Auto play blocked or failed:', err));
+        });
+        card.addEventListener('mouseleave', () => {
+          video.pause();
+          video.currentTime = 0;
+        });
+      }
+    });
+  </script>
+</body>
+</html>

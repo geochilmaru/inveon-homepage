@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Booking | INVEON ELITE ACADEMY</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="./index.html" class="logo-link eng-text">
+        <span>INVEON ELITE</span><span class="logo-dot">.</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="./index.html" class="nav-link" id="nav-home">Syllabus Home</a></li>
+          <li><a href="./faculty.html" class="nav-link" id="nav-faculty">Faculty</a></li>
+          <li><a href="./syllabus.html" class="nav-link" id="nav-syllabus">Curriculum</a></li>
+          <li><a href="./register.html" class="nav-link active" id="nav-register">Academic Booking</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="./register.html" class="btn btn-primary eng-text">Admissions</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <section class="section-padding" style="padding-top: 10rem;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle eng-text">Admission Evaluation</span>
+        <h2 class="section-title">프리미엄 레벨 진단 및 상담 예약</h2>
+        <p class="section-desc">희망하시는 일정을 선택한 뒤 학생 정보를 남겨주시면, 정밀 상담 일정을 확정해 드립니다.</p>
+      </div>
+
+      <div class="booking-grid">
+        <!-- Left: Interactive Calendar -->
+        <div class="calendar-wrapper">
+          <div class="calendar-header">
+            <h3 class="calendar-title" id="calendar-month-year">June 2026</h3>
+          </div>
+          <div class="calendar-grid" id="calendar-grid">
+            <!-- Rendered by JS -->
+          </div>
+          
+          <div class="time-slots">
+            <h4 class="time-slots-title">Available Time Slots</h4>
+            <div class="slots-grid" id="slots-grid">
+              <p style="color: var(--color-text-muted); font-size: 0.9rem; grid-column: 1/-1;">날짜를 먼저 선택해 주세요.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Student info Form -->
+        <div class="booking-form-wrapper">
+          <h3 class="form-title">학생 정보 입력</h3>
+          <form id="premium-booking-form">
+            <input type="hidden" id="selected-date" name="date" required>
+            <input type="hidden" id="selected-time" name="time" required>
+
+            <div class="form-group">
+              <label class="form-label" for="parent-name">학부모 성함</label>
+              <input type="text" id="parent-name" class="form-input" placeholder="학부모님 성함을 입력하세요" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="phone">연락처</label>
+              <input type="tel" id="phone" class="form-input" placeholder="010-0000-0000" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="student-name">학생 이름</label>
+              <input type="text" id="student-name" class="form-input" placeholder="학생 이름을 입력하세요" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="grade">현재 학년</label>
+              <select id="grade" class="form-input" required style="background-color: var(--color-bg-base); color: white;">
+                <option value="">학년을 선택하세요</option>
+                <option value="초1~초3">초등 저학년 (1-3학년)</option>
+                <option value="초4~초6">초등 고학년 (4-6학년)</option>
+                <option value="중등부">중등부</option>
+                <option value="고등부">고등부 및 입시 준비</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem; border-radius: 4px;">예약 신청서 제출</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <h3 class="eng-text">INVEON ELITE ACADEMY</h3>
+        <p style="font-size: 0.9rem; max-width: 320px; line-height: 1.6;">뇌과학 기반의 나선형 어휘 반복 설계와 Ivy-prep 리딩/라이팅 중심의 송도 명문 영어교육 기관</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">Admissions</h4>
+        <ul class="footer-links">
+          <li><a href="./faculty.html">Ivy-Prep Faculty</a></li>
+          <li><a href="./syllabus.html">Academic Wonders Course</a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <h4 class="footer-heading">Information</h4>
+        <p>📍 인천광역시 연수구 컨벤시아대로 42번길 29 에이스프라자1, 203호</p>
+        <p>📞 032-833-3642 | 🏢 제 4067호</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Inveon Elite. All Rights Reserved.</p>
+      <p><a href="/mockups" style="color: var(--color-primary); text-decoration: none; font-weight: 600;">← 시안 갤러리로 돌아가기</a></p>
+    </div>
+  </footer>
+
+  <script src="./main.js"></script>
+  <script>
+    document.getElementById('premium-booking-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const date = document.getElementById('selected-date').value;
+      const time = document.getElementById('selected-time').value;
+      
+      if (!date || !time) {
+        alert('날짜와 시간 슬롯을 먼저 선택해 주세요.');
+        return;
+      }
+
+      const bookingData = {
+        type: 'Premium Academy',
+        parentName: document.getElementById('parent-name').value,
+        phone: document.getElementById('phone').value,
+        studentName: document.getElementById('student-name').value,
+        grade: document.getElementById('grade').value,
+        date: date,
+        time: time,
+        createdAt: new Date().toISOString()
+      };
+
+      // Get existing reservations from localStorage
+      let reservations = JSON.parse(localStorage.getItem('iea_reservations') || '[]');
+      reservations.push(bookingData);
+      localStorage.setItem('iea_reservations', JSON.stringify(reservations));
+
+      // Attempt to sync with server.js
+      fetch('/api/sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(reservations)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log('Sync result:', data);
+      })
+      .catch(err => console.error('Sync failed:', err));
+
+      alert(`예약이 완료되었습니다!\n일정: ${date} ${time}`);
+      window.location.href = './index.html';
+    });
+  </script>
+</body>
+</html>
